@@ -1,0 +1,214 @@
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Anuphan", sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+p {
+  margin: 0;
+}
+
+li{
+  list-style: none;
+}
+
+header {
+  background-color: #181922;
+}
+
+header .container {
+  display: flex;
+  height: 80px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#navigation {
+  display: flex;
+  margin-right: 150px;
+}
+
+header .container ul li {
+  display: block;
+  margin-right: 40px;
+  text-transform: uppercase;
+  color: white;
+  filter: brightness(80%);
+}
+
+#account {
+  display: flex;
+  color: #fff;
+  filter: brightness(80%);
+}
+
+#login {
+  border-right: 1px solid #fff;
+  margin-right: 10px;
+  padding-right: 10px;
+}
+
+#login:hover,
+#register:hover {
+  color: aqua;
+}
+
+header .container ul li:hover {
+  filter: brightness(110%);
+}
+
+.container {
+  max-width: 1180px;
+  margin: 0 auto;
+  display: flex;
+}
+
+main {
+  background-image: url("https://steamcdn-a.akamaihd.net/steam/apps/730/page_bg_generated_v6b.jpg?t=1554409309");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+
+main .container {
+  padding-top: 50px;
+}
+
+#name {
+  font-size: 30px;
+  margin-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 20px
+}
+
+#content {
+  width: 700px;
+  color: white;
+  margin-right: 40px;
+}
+
+#content img {
+  width: inherit;
+}
+
+#sidebar p{
+  color: white;
+  font-size: 18px;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-style: italic;
+  line-height: 26px;
+}
+
+#sidebar p::first-letter{
+  font-size: 25px;
+  padding-left: 25px;
+}
+
+#sidebar li {
+  color: #74b9ff;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 18px;
+  line-height: 30px;
+}
+
+#sidebar ul {
+  padding-left: 10px;
+  padding-top: 20px;
+}
+
+#sidebar .info {
+  color: white;  
+}
+
+#sidebar>h1 {
+  color: #fdcb6e
+}
+
+#steamspy-tags{
+  margin-top: 20px;
+}
+
+#steamspy-tags>h4{
+  margin-bottom: 10px;
+}
+
+#steamspy-tags ul{
+  display: flex;
+  padding-left: 5px;
+}
+
+#steamspy-tags li {
+  display: block;
+  height: 25px;
+  background-color: #263b5e;
+  padding: 4px 10px;
+  color: #5ba1f0;
+  border-radius: 5px;
+  margin-right: 8px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+#steamspy-tags li:hover{
+  filter: brightness(130%);
+}
+
+#buy {
+  background-color: #808A9B;
+  height: 60px;
+  margin-top: 10px;
+  border-radius: 10px;
+}
+
+#cost {
+  position: relative;
+  top:20px;
+  left: 450px;
+  background-color: black;
+  width: 200px;
+  height: 35px;
+  border-radius: 5px;
+ 
+}
+
+#buy-now-btn {
+  background-color: green;
+  color: wheat;
+  height: 100%;
+  width: 100px;
+  position: absolute;
+  right: 0px;
+  border-radius: inherit;
+  border: 3px solid black;
+  cursor: pointer;
+}
+
+#buy-now-btn:hover{
+  filter: brightness(120%);
+}
+
+#price-item {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 22px;
+}
+
+
+#name-buy-item {
+  font-size: 20px;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  align-items: center;
+  transform: translateY(70%);
+  margin-left: 15px;
+}
+
