@@ -160,8 +160,6 @@ main .container {
   background-color: #ffffff86;
 }
 
-
-
 /* CSS CONTENT */
 #content {
   width: 100%;
@@ -175,7 +173,7 @@ main .container {
 
 .body {
   height: auto;
-  overflow:hidden;
+  overflow: hidden;
   justify-content: space-between;
   padding-bottom: 30px;
   position: relative;
@@ -223,35 +221,106 @@ main .container {
   background-color: #1070dd8c;
   color: #fff;
   border: none;
-  border-radius: .3125rem;
+  border-radius: 5px;
 }
 
 .btn:hover {
   background-color: #1070dd;
 }
 
-
 .count-number {
-  height: 1.875rem;
-  width: 2.5rem;
+  height: 30px;
+  width: 40px;
   background-color: transparent;
   display: flex;
   justify-content: center;
   align-items: center;
   color: white;
-  font-size: 1.125rem
+  font-size: 18px;
 }
 
 #result {
   min-height: 600px;
 }
 
-#best-games{
-  min-height: 312.438px;
+#best-games {
+  min-height: 312.4384px;
 }
 
+#nav-bar {
+  display: none;
+}
 
+@media (max-width: 650px) {
+  #navigation {
+    display: none;
+  }
+  #logo {
+    scale: 0.7;
+  }
+  main .container {
+    padding-top: 0;
+    margin-left: 15px;
+  }
 
+  header .container > a {
+    width: 100px;
+  }
+  #account {
+    padding-right: 15px;
+  }
+  .items {
+    margin-left: 0;
+  }
 
+  .head {
+    padding: 0;
+  }
+  #best-games,
+  #result {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .button {
+    transform: translate(-90%, 65%);
+  }
+  #result {
+    padding-bottom: 20px;
+  }
+  #content {
+    margin: 0;
+  }
+  .items {
+    width: 158px;
+    margin-right: 10px;
+    height: 160px;
+  }
 
+  .items img {
+    height: 90px;
+  }
+  #sidebar {
+    display: none;
+    width: 80px;
+  }
+  #genres-block {
+    display: flex;
+    flex-wrap: wrap;
+  }
 
+  #nav-bar {
+    display: block;
+    position: absolute;
+    right: 15px;
+    background-color: #ffffff7b;
+    font-size: 25px;
+    border: none;
+    outline: none;
+    width: 35px;
+  }
+  #border {
+    margin-top: 50px;
+    margin-left: 25px;
+  }
+}

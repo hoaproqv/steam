@@ -43,23 +43,34 @@ const loadDataGameDetail = async () => {
   const main = document.querySelector("main");
   main.style.backgroundImage = "url(" + `${dataGameDetail.background}` + ")";
   const releaseDate = document.querySelector("#release-date");
-  const d = new Date(dataGameDetail["release_date"])
-  const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+  const d = new Date(dataGameDetail["release_date"]);
+  const months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December"
+  ];
   let month = months[d.getMonth()];
-  releaseDate.innerHTML = `${d.getDate()}  ${month}, ${d.getFullYear()}`
+  releaseDate.innerHTML = `${d.getDate()}  ${month}, ${d.getFullYear()}`;
 
   //create steam tags//
   const steamTags = dataGameDetail["steamspy_tags"];
   const steamspyTags = document.querySelector("#steamspy-tags");
-  const ulList = document.createElement("ul")
+  const ulList = document.createElement("ul");
   steamspyTags.appendChild(ulList);
-  steamTags.forEach(e=>{
+  steamTags.forEach((e) => {
     const liList = document.createElement("li");
     liList.innerHTML = e;
     ulList.appendChild(liList);
-  })
+  });
 };
 
-window.addEventListener("load", () => {
-  loadDataGameDetail();
-});
+loadDataGameDetail();

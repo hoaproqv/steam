@@ -17,7 +17,7 @@ p {
   margin: 0;
 }
 
-li{
+li {
   list-style: none;
 }
 
@@ -87,7 +87,7 @@ main .container {
   font-size: 30px;
   margin-top: 10px;
   padding-bottom: 10px;
-  padding-left: 20px
+  padding-left: 20px;
 }
 
 #content {
@@ -100,22 +100,22 @@ main .container {
   width: inherit;
 }
 
-#sidebar p{
+#sidebar p {
   color: white;
   font-size: 18px;
-  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-style: italic;
   line-height: 26px;
 }
 
-#sidebar p::first-letter{
+#sidebar p::first-letter {
   font-size: 25px;
   padding-left: 25px;
 }
 
 #sidebar li {
   color: #74b9ff;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: "Times New Roman", Times, serif;
   font-size: 18px;
   line-height: 30px;
 }
@@ -126,44 +126,39 @@ main .container {
 }
 
 #sidebar .info {
-  color: white;  
+  color: white;
 }
 
-#sidebar>h1 {
-  color: #fdcb6e
+#sidebar > h1 {
+  color: #fdcb6e;
 }
 
-#steamspy-tags{
+#steamspy-tags {
   margin-top: 20px;
 }
 
-#steamspy-tags>h4{
+#steamspy-tags > h4 {
   margin-bottom: 10px;
 }
 
-#steamspy-tags ul{
+#steamspy-tags ul {
   display: flex;
   padding-left: 5px;
 }
 
 #steamspy-tags li {
   display: block;
-  height: 25px;
+  height: 30px;
   background-color: #263b5e;
-  padding: 4px 10px;
+  padding: 6px 10px;
   color: #5ba1f0;
   border-radius: 5px;
-  margin-right: 8px;
+  margin-right: 10px;
   font-size: 14px;
-  cursor: pointer;
-}
-
-#steamspy-tags li:hover{
-  filter: brightness(130%);
 }
 
 #buy {
-  background-color: #808A9B;
+  background-color: #808a9b;
   height: 60px;
   margin-top: 10px;
   border-radius: 10px;
@@ -171,13 +166,12 @@ main .container {
 
 #cost {
   position: relative;
-  top:20px;
+  top: 20px;
   left: 450px;
   background-color: black;
   width: 200px;
   height: 35px;
   border-radius: 5px;
- 
 }
 
 #buy-now-btn {
@@ -192,23 +186,64 @@ main .container {
   cursor: pointer;
 }
 
-#buy-now-btn:hover{
-  filter: brightness(120%);
-}
-
 #price-item {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  left: 22px;
+  left: 25px;
 }
-
 
 #name-buy-item {
   font-size: 20px;
-  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   align-items: center;
   transform: translateY(70%);
   margin-left: 15px;
 }
 
+@media (max-width: 650px) {
+  #navigation {
+    display: none;
+  }
+  #logo {
+    scale: 0.7;
+  }
+  main .container {
+    padding-top: 0;
+    margin: 0px 10px;
+  }
+
+  header .container > a {
+    width: 100px;
+  }
+
+  main .container {
+    display: block;
+    padding-bottom: 20px;
+  }
+  #content img {
+    width: 90vw;
+  }
+
+  #content h1 {
+    margin: 0;
+    padding: 20px 5px;
+    text-overflow: clip;
+  }
+  #buy {
+    width: 90vw;
+    position: relative;
+  }
+  #cost {
+    position: absolute;
+    left: 120px;
+    top: 45px;
+  }
+  main {
+    height: 100%;
+  }
+  #name-buy-item {
+    transform: translateY(0%);
+    padding-top: 10px;
+  }
+}

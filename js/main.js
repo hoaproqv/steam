@@ -42,6 +42,7 @@ const listGenres = document.querySelectorAll("#genres li");
 //Variable
 let typeOrSearch;
 let chooseItems;
+let index;
 
 //==============CREATE GAMES================//
 const createGame = ({ typeList, areaAddGame }) => {
@@ -80,9 +81,7 @@ const linkToDetail = (listItems) => {
       console.log(srcImg);
       const queryRegex = /[0-9]+/m;
       const appidItem = queryRegex.exec(srcImg);
-      window.location.assign(
-        `${window.location.origin}/detail.html?id=${appidItem}`
-      );
+      window.location.href = `${window.location.origin}/detail.html?id=${appidItem}`;
     });
   });
 };
@@ -100,7 +99,7 @@ const createGameResult = async (item, page) => {
   const getListGameByType = await getSteamAPI({
     tag: content,
     limit: 6,
-    page: page,
+    page: page
   });
   const resultGameItems = document.querySelectorAll("#result .items");
   removeList(resultGameItems);
@@ -146,7 +145,7 @@ const createSearchGames = async (page) => {
   const search = await getSteamAPI({
     search: inputSearch.value,
     limit: 12,
-    page: page,
+    page: page
   });
   createGame({ typeList: search, areaAddGame: bodyResult });
   const listResultItems = document.querySelectorAll("#result .items");
@@ -214,13 +213,13 @@ const dataBestGames = async (page) => {
   const getBestGameList = await getSteamAPI({
     tag: "classic",
     limit: 3,
-    page: page,
+    page: page
   });
   const listBestGame = document.querySelectorAll("#best-games .items");
   removeList(listBestGame);
   createGame({
     typeList: getBestGameList,
-    areaAddGame: freeGameBody,
+    areaAddGame: freeGameBody
   });
   const freeGameTitle = document.querySelector("#best-games h1");
   freeGameTitle.innerHTML = "Best of all time";
@@ -238,37 +237,72 @@ const buttonRightBestGame = document.querySelector(
 const countNumBestGame = document.querySelector(
   "#best-games-btn .count-number"
 );
-
-let index = 1;
+let indexBestGame = 1;
 buttonRightBestGame.addEventListener("click", () => {
   const listBestGame = document.querySelectorAll("#best-games .items");
   removeList(listBestGame);
-  index += 1;
-  dataBestGames(index);
-  countNumBestGame.innerHTML = index;
+  indexBestGame += 1;
+  dataBestGames(indexBestGame);
+  countNumBestGame.innerHTML = indexBestGame;
 });
 
 buttonLeftBestGame.addEventListener("click", () => {
-  if (index > 1) {
+  if (indexBestGame > 1) {
     const listBestGame = document.querySelectorAll("#best-games .items");
     removeList(listBestGame);
-    index -= 1;
-    dataBestGames(index);
-    countNumBestGame.innerHTML = index;
+    indexBestGame -= 1;
+    dataBestGames(indexBestGame);
+    countNumBestGame.innerHTML = indexBestGame;
   }
 });
 //===================================================//
 
-//=================NEW RELEASE==================//
-
 //================LOAD WEB=================//
-window.addEventListener("load", async () => {
-  const numberCount = document.querySelector("#best-games-btn .count-number");
-  dataBestGames(1);
-  numberCount.textContent = 1;
-  chooseItems = listCategories[0];
-  createGameResult(chooseItems, 1);
-  typeOrSearch = "type";
-  index = 1;
-  countNumResult.innerHTML = 1;
+
+const numberCount = document.querySelector("#best-games-btn .count-number");
+dataBestGames(1);
+numberCount.textContent = 1;
+chooseItems = listCategories[0];
+createGameResult(chooseItems, 1);
+typeOrSearch = "type";
+index = 1;
+countNumResult.innerHTML = 1;
+
+const navBarIcon = document.querySelector("#nav-bar");
+const sideBar = document.querySelector("#sidebar");
+const content = document.querySelector("#content");
+let check;
+navBarIcon.addEventListener("click", () => {
+  check = 1;
+  if (sideBar.style.display == "block") {
+    sideBar.style.display = "none";
+    content.style.display = "block";
+  } else {
+    sideBar.style.display = "block";
+    content.style.display = "none";
+  }
+});
+
+const listTypeGame = document.querySelectorAll("#border li");
+listTypeGame.forEach((e) => {
+  e.addEventListener("click", () => {
+    if (check === 1) {
+      sideBar.style.display = "none";
+      content.style.display = "block";
+    }
+  });
+});
+
+searchBtn.addEventListener("click", () => {
+  if (check === 1) {
+    sideBar.style.display = "none";
+    content.style.display = "block";
+  }
+});
+
+window.addEventListener("resize", () => {
+  if (check === 1) {
+    sideBar.style.display = "block";
+    content.style.display = "block";
+  }
 });
