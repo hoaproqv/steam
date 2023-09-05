@@ -21,7 +21,7 @@ const createParams = ({ limit, page, tag, genres, search }) => {
 const getSteamAPI = async (params) => {
   try {
     const url = `https://steam-api-mass.onrender.com/games?${createParams(
-      params
+      params,
     )}`;
     const res = await fetch(url);
     const { data } = await res.json();
@@ -50,24 +50,15 @@ const createGame = ({ typeList, areaAddGame }) => {
     const divItems = document.createElement("div");
     divItems.setAttribute("class", "items");
     areaAddGame.appendChild(divItems);
-    const imgGame = document.createElement("img");
-    imgGame.setAttribute("src", gameItem["header_image"]);
-    divItems.appendChild(imgGame);
-    const divInfo = document.createElement("div");
-    divInfo.setAttribute("class", "info");
-    divItems.appendChild(divInfo);
-    const pName = document.createElement("p");
-    pName.setAttribute("class", "name");
-    pName.innerHTML = gameItem.name;
-    divInfo.appendChild(pName);
-    const pPrice = document.createElement("p");
-    pPrice.setAttribute("class", "price");
-    if (gameItem.price) {
-      pPrice.innerHTML = `Price: ${gameItem.price} $`;
-    } else {
-      pPrice.innerHTML = "Free to play";
-    }
-    divInfo.appendChild(pPrice);
+    divItems.innerHTML = `<div class="items">
+    <img src=${gameItem["header_image"]}/>
+    <div class="info">
+      <p class="name">${gameItem.name}</p>
+      <p class="price">${
+        gameItem.price ? `Price: ${gameItem.price} $` : "Free to play"
+      }</p>
+    </div>
+    </div>`;
   });
 };
 //========================END===================//
@@ -99,7 +90,7 @@ const createGameResult = async (item, page) => {
   const getListGameByType = await getSteamAPI({
     tag: content,
     limit: 6,
-    page: page
+    page: page,
   });
   const resultGameItems = document.querySelectorAll("#result .items");
   removeList(resultGameItems);
@@ -133,10 +124,10 @@ listGenres.forEach((item) => {
 //==============button next, back===============//
 const btnLeftResult = document.querySelector("#result-games-btn .button-left");
 const btnRightResult = document.querySelector(
-  "#result-games-btn .button-right"
+  "#result-games-btn .button-right",
 );
 const countNumResult = document.querySelector(
-  "#result-games-btn .count-number"
+  "#result-games-btn .count-number",
 );
 //==================================================================//
 
@@ -145,7 +136,7 @@ const createSearchGames = async (page) => {
   const search = await getSteamAPI({
     search: inputSearch.value,
     limit: 12,
-    page: page
+    page: page,
   });
   createGame({ typeList: search, areaAddGame: bodyResult });
   const listResultItems = document.querySelectorAll("#result .items");
@@ -213,13 +204,13 @@ const dataBestGames = async (page) => {
   const getBestGameList = await getSteamAPI({
     tag: "classic",
     limit: 3,
-    page: page
+    page: page,
   });
   const listBestGame = document.querySelectorAll("#best-games .items");
   removeList(listBestGame);
   createGame({
     typeList: getBestGameList,
-    areaAddGame: freeGameBody
+    areaAddGame: freeGameBody,
   });
   const freeGameTitle = document.querySelector("#best-games h1");
   freeGameTitle.innerHTML = "Best of all time";
@@ -229,13 +220,13 @@ const dataBestGames = async (page) => {
 
 //=================Button next, back of best game===============//
 const buttonLeftBestGame = document.querySelector(
-  "#best-games-btn .button-left"
+  "#best-games-btn .button-left",
 );
 const buttonRightBestGame = document.querySelector(
-  "#best-games-btn .button-right"
+  "#best-games-btn .button-right",
 );
 const countNumBestGame = document.querySelector(
-  "#best-games-btn .count-number"
+  "#best-games-btn .count-number",
 );
 let indexBestGame = 1;
 buttonRightBestGame.addEventListener("click", () => {
